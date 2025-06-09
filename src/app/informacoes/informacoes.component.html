@@ -7,7 +7,8 @@
       (onValueChanged)="carregarCidades($event.value)"
       displayExpr="nome"
       valueExpr="id"
-      placeholder="Selecione um estado">
+      placeholder="Selecione um estado"
+      [showClearButton]="true">
     </dx-select-box>
   </div>
 
@@ -21,7 +22,8 @@
       [disabled]="!estadoSelecionado"
       placeholder="Selecione uma cidade"
       displayExpr="nome"
-      valueExpr="nome">
+      valueExpr="nome"
+    [showClearButton]="true">
     </dx-select-box>
   </div>
 
