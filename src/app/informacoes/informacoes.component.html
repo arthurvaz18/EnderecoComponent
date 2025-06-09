@@ -1,1 +1,29 @@
-<p>informacoes works!</p>
+<div class="container">
+  <div class="box">
+    <label>Estado</label>
+    <dx-select-box
+      [items]="estados"
+      [(value)]="estadoSelecionado"
+      (onValueChanged)="carregarCidades($event.value)"
+      displayExpr="nome"
+      valueExpr="id"
+      placeholder="Selecione um estado">
+    </dx-select-box>
+  </div>
+
+  <br>
+
+  <div class="box">
+    <label>Cidade</label>
+    <dx-select-box
+      [items]="cidades"
+      [(value)]="cidadeSelecionada"
+      [disabled]="!estadoSelecionado"
+      placeholder="Selecione uma cidade"
+      displayExpr="nome"
+      valueExpr="nome">
+    </dx-select-box>
+  </div>
+
+  <label> Município selecionado: "{{ cidadeSelecionada }}"</label>
+</div>

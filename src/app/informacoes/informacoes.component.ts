@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IbgeServiceService} from "../service/ibge-service.service";
 
 @Component({
   selector: 'app-informacoes',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./informacoes.component.css']
 })
 export class InformacoesComponent implements OnInit {
+  estados: any[] = [];
+  cidades: any[] = [];
 
-  constructor() { }
+  estadoSelecionado: any = null;
+  cidadeSelecionada: any = null;
 
-  ngOnInit(): void {
+  constructor(private ibgeService: IbgeServiceService) {
   }
 
+  ngOnInit(): void {
+    this.ibgeService.getEstados().subscribe((dados) => {
+      this.estados = dados;
+    });
+  }
+  carregarCidades(estadoId: number): void {
+    this.ibgeService.getCidadesPorEstado(estadoId).subscribe((dados) => {
+      this.cidades = dados;
+    });
+  }
 }

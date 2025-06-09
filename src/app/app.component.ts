@@ -17,7 +17,7 @@ export class AppComponent {
   menuButtonOptions = {
     icon: 'menu',
     onClick: () => {
-      this.drawerOpened = !this.drawerOpened;  // abre/fecha o menu
+      this.drawerOpened = !this.drawerOpened;
     }
   };
 
