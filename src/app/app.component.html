@@ -1,0 +1,31 @@
+<dx-toolbar>
+  <dxi-item
+    location="before"
+    widget="dxButton"
+    [options]="menuButtonOptions">
+  </dxi-item>
+
+  <dxi-item location="center" text="Endereços"></dxi-item>
+</dx-toolbar>
+
+<dx-drawer
+  [opened]="drawerOpened"
+  position="left"
+  [minSize]="0"
+  [maxSize]="250"
+  revealMode="overlap"
+  [closeOnOutsideClick]="true"
+  (onOptionChanged)="onDrawerOptionChanged($event)">
+
+  <dx-list
+    *ngIf="drawerOpened"
+    [items]="menuItems"
+    displayExpr="text"
+    selectionMode="single"
+    (onItemClick)="onMenuItemClick($event.itemData)">
+  </dx-list>
+</dx-drawer>
+
+<div class="content" style="padding: 16px;">
+  <router-outlet></router-outlet>
+</div>
